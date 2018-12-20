@@ -10,7 +10,7 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 })
 export class ListingComponent implements OnInit {
   public uData = [];
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+ 
   constructor(private userData: UserDataService) { }
 
   ngOnInit() {
@@ -20,9 +20,5 @@ export class ListingComponent implements OnInit {
     });
   }
 
-  dataSource = this.uData;
-
-  Filter(Value: any) {
-    this.dataSource.filter = Value.trim().toLowerCase();
-  }
+  
 }

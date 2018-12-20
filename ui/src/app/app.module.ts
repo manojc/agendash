@@ -6,12 +6,14 @@ import { ListingComponent } from './listing/listing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule,MatCheckboxModule, MatTableModule, MatFormFieldModule, MatInputModule, } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetailsComponent } from './details/details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListingComponent
+    ListingComponent,
+    DetailsComponent
   ],
   imports: [
     
