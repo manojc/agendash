@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListingComponent } from './listing/listing.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule,MatCheckboxModule, MatTableModule, MatFormFieldModule, MatInputModule, } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatTableModule, MatFormFieldModule, MatInputModule, MatCardModule, } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './details/details.component';
 
@@ -24,6 +24,7 @@ import { DetailsComponent } from './details/details.component';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     BrowserAnimationsModule,
     AppRoutingModule
   ],

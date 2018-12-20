@@ -16,13 +16,15 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
 
     let jobId = this.route.snapshot.params.id;
-
-    console.log(jobId);
+    var currentTime = new Date();
+    console.log(jobId, currentTime);
     this.userData.getData().subscribe(data => {
       this.uData = data,
         console.log(this.uData)
-        var sample=JSON.stringify(this.uData);
+        
     });
+    
+    
   }
 
 }

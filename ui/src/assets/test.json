@@ -1,12 +1,12 @@
 {
     "_id" : "5c016763cfa1eeddb153be3d",
     "data" : {
-        "url" : "http://192.168.1.135:8080/cdata-nj_jivox.xml",
-        "root_path" : "listing",
-        "cuid" : "cjp494ng20000pdvazcu0k2wj",
-        "callback_url" : "http://local.app.fluidads-dev.com/api/external/feeds/update?feedId=78&accountId=2",
-        "callback_method" : "POST"
-    },
+                "url" : "http://192.168.1.135:8080/cdata-nj_jivox.xml",
+                "root_path" : "listing",
+                "cuid" : "cjp494ng20000pdvazcu0k2wj",
+                "callback_url" : "http://local.app.fluidads-dev.com/api/external/feeds/update?feedId=78&accountId=2",
+                "callback_method" : "POST"
+             },
     "name" : "/feed/refresh",
     "type" : "normal",
     "priority" : 0,
