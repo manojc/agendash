@@ -12,7 +12,7 @@ export class DetailsComponent implements OnInit {
   public uData = [];
 
   constructor(private route: ActivatedRoute, private userData: UserDataService) { }
-  
+
   ngOnInit() {
 
     let jobId = this.route.snapshot.params.id;
@@ -21,10 +21,10 @@ export class DetailsComponent implements OnInit {
     this.userData.getData().subscribe(data => {
       this.uData = data,
         console.log(this.uData)
-        
+
     });
-    
-    
+
+
   }
 
 }

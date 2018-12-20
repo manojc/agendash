@@ -10,7 +10,7 @@ import { AnonymousSubject } from 'rxjs/internal/Subject';
 })
 export class ListingComponent implements OnInit {
   public uData = [];
- 
+
   constructor(private userData: UserDataService) { }
 
   ngOnInit() {
@@ -20,5 +20,5 @@ export class ListingComponent implements OnInit {
     });
   }
 
-  
+
 }
