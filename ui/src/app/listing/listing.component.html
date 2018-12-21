@@ -9,14 +9,14 @@
       <th scope="col"> Status </th>
       <th scope="col"> Details </th>
     </thead>
-    <tr>
-      <td> {{ uData.name | titlecase }} </td>
-      <td> {{ uData.type | titlecase }} </td>
+    <tr *ngFor="let item of uData">
+      <td> {{ item.name | titlecase }} </td>
+      <td> {{ item.type | titlecase }} </td>
       <td> - </td>
 
       <td>
         <button class="btn btn-primary">
-          <a routerLink="Details/{{ uData._id }}"> Details </a>
+          <a routerLink="Details/{{ item._id }}"> Details </a>
         </button>
       </td>
     </tr>
