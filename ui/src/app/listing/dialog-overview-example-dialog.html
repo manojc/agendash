@@ -7,9 +7,10 @@
         </button>
 
       </div>
+  <div *ngFor="let item of items">    
  <mat-form-field>
    
-  <select matNativeControl required>
+  <select #dropDown matNativeControl required>
     <option value="volvo">Volvo</option>
     <option value="saab">Saab</option>
     <option value="mercedes">Mercedes</option>
@@ -18,13 +19,13 @@
   
 </mat-form-field>
  <mat-form-field>
-      <input matInput placeholder="What's your name?">
+      <input #filter matInput placeholder="What's your name?" required>
   </mat-form-field>
 
   
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="addFilter()">Add New Filter</button>
+  <button mat-button (click)="addFilter( dropDown, filter)">Add New Filter</button>
   <button mat-button cdkFocusInitial>Search Jobs</button>
 </div>
 </div>

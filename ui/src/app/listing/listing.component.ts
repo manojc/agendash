@@ -59,7 +59,9 @@ export class ListingComponent implements OnInit {
   styleUrls: ['./dialog-style.css']
 })
 export class DialogOverviewExampleDialog {
-
+  items:any[] = [1];
+  datas:any[];
+  
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
@@ -67,5 +69,11 @@ export class DialogOverviewExampleDialog {
   onNoClick(): void {
     this.dialogRef.close();
   }
-
+  addFilter(dropVal:any, filterVal:any){
+    let i = 1;
+    let values= { dropVal, filterVal};
+    this.items.push(i);
+    console.log(this.datas);
+    i++;
+  }
 }

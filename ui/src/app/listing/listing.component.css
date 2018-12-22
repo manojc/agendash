@@ -19,7 +19,7 @@ a{
     color: white; 
 }
 
-button{
+.btn-success{
 
-    padding: 5px;
+   margin: 10px;
 }
