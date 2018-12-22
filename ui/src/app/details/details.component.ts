@@ -20,13 +20,6 @@ export class DetailsComponent implements OnInit {
     console.log(jobId, currentTime);
     this.userData.getData().subscribe(data => {
       this.uData = data
-     
-        
-    
-  
-  
-     
-      
     });
    
     

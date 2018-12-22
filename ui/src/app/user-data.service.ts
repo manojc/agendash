@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserDataService {
 
-	private url: string = "/assets/test.json";
+	private url: string = "/api/test.json";
 
 	constructor(private http: HttpClient) {
 
