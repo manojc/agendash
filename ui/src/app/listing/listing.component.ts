@@ -1,79 +1,53 @@
-import { Component, OnInit, inject, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { UserDataService } from '../user-data.service';
-import { MatTableDataSource, MatFormField, matFormFieldAnimations, MatInput, MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
-import { style } from '@angular/animations';
-
-export interface DialogData {
-  animal: string;
-  name: string;
-}
-
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+    selector: 'app-listing',
+    templateUrl: './listing.component.html',
+    styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
-  public uData = [];
-  test: number = 0;
-  animal: string;
-  name: string;
-  constructor(private userData: UserDataService, public dialog: MatDialog) { }
+    public uData = [];
+    test: number = 0;
+    animal: string;
+    name: string;
+    constructor(private userData: UserDataService, public dialog: MatDialog) { }
 
-  openDialog(): void {
-    this.test = 1;
+    openDialog(): void {
+        this.test = 1;
+        this.dialog.open(DialogOverviewExampleDialog, { width: '500px' })
+            .afterClosed().subscribe(result => console.log(JSON.stringify(result, null, 4)));
+    }
 
-   this.dialog.open(DialogOverviewExampleDialog, {
-      width: '500px'
-
-    })
-    .afterClosed().subscribe(result => {
-      console.log(result);
-     
-
-    });
-  }
-
-
-  
-
-
-  ngOnInit() {
-    this.userData.getData().subscribe(data => {
-      this.uData = data
-        //console.log(this.uData)
-    });
-
-
-  }
-
+    ngOnInit() {
+        this.userData.getData().subscribe(data => {
+            this.uData = data
+            //console.log(this.uData)
+        });
+    }
 }
 
 
 @Component({
-  selector: 'dialog-overview-example-dialog',
-  templateUrl: 'dialog-overview-example-dialog.html',
-  styleUrls: ['./dialog-style.css']
+    selector: 'dialog-overview-example-dialog',
+    templateUrl: 'dialog-overview-example-dialog.html',
+    styleUrls: ['./dialog-style.css']
 })
 export class DialogOverviewExampleDialog {
 
-  filters: any[];
+    constructor(public dialogRef: MatDialogRef<DialogOverviewExampleDialog>, @Inject(MAT_DIALOG_DATA) public filters: Array<any>) {
+        this.addFilter();
+    }
 
-  constructor(
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    public onNoClick(): void {
+        this.filters = this.filters || [];
+        this.filters = this.filters.filter(filter => !!filter.key && !!filter.value);
+        this.dialogRef.close(this.filters);
+    }
 
-    this.filters = this.filters || [{key : '',value: ''}];
-
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close(this.filters);
-  }
-  addFilter() {
-
-    this.filters = [...this.filters, {key : '', value: ''}];
-  }
+    public addFilter() {
+        this.filters = this.filters || [];
+        this.filters = [...this.filters, { key: '', value: '' }];
+    }
 }
