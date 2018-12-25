@@ -1,7 +1,6 @@
-import { Component, OnInit, inject, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../user-data.service';
-import { MatTableDataSource, MatFormField, matFormFieldAnimations, MatInput, MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
+import { MatDialogRef, MatDialog } from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from '../../../node_modules/rxjs';
