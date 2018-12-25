@@ -1,3 +1,8 @@
+
+h1{
+
+    border: 1px solid black;
+}
 .dialog{
     overflow-x: hidden;
     overflow-y: scroll;
@@ -15,21 +20,27 @@
 }
 
 .content{
+    padding: 5px;
     overflow: hidden;
 }
-.close{
 
-    width: 100%;
-}
 .btn-danger{
 
+    border: 1px solid black;
+    z-index: 100;
     display: block;
     position: relative;
     float: right;
-    
-    margin: 10px;
+    margin-top: -45px;
+    margin-left: -10;
 }
 mat-form-field{
-
+    padding-top: 5px;
     margin:10px;
+    border: 1px solid black;
+}
+
+.buttons{
+    padding-bottom: 10px;
+    padding-left: 10px;
 }

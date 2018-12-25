@@ -1,22 +1,28 @@
 <div class="dialog">
-    <h1 mat-dialog-title>Hi Select your filters</h1>
-    <div class="content" mat-dialog-content>
-        <div *ngFor="let filter of filters; let index = index;">
-            <mat-form-field>
-                <select [(ngModel)]="filters[index].key" #dropDown matNativeControl required>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
-            </mat-form-field>
-            <mat-form-field>
-                <input #filter matInput [(ngModel)]="filters[index].value" placeholder="What's your name?" required>
-            </mat-form-field>
-        </div>
-        <div mat-dialog-actions>
-            <button mat-button (click)="addFilter()">Add New Filter</button>
-            <button mat-button cdkFocusInitial (click)="onNoClick()">Search Jobs</button>
-        </div>
+  <h1 mat-dialog-title>Hi Select Your Filters</h1>
+  <div class="content" mat-dialog-content>
+
+    <div *ngFor="let filter of filters; index as i">
+      <mat-form-field>
+
+        <select [name] = "i" [(ngModel)]="filter.key"  #dropDown matNativeControl required>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+
+      </mat-form-field>
+      <mat-form-field>
+        <input #filter matInput [(ngModel)]="filter.value" placeholder="What's your name?" required>
+     
+      </mat-form-field>
+      
+      <button class="btn btn-danger" (click) = "deleteFilter(i)">X</button>
+
     </div>
-</div>
+    <div mat-dialog-actions class="buttons">
+      <button mat-button (click)="addFilter()">Add New Filter</button>
+      <button mat-button cdkFocusInitial (click)="onNoClick()">Search Jobs</button>
+    </div>
+  </div>
