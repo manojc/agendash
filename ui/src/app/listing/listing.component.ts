@@ -70,6 +70,7 @@ export class DialogOverviewExampleDialog {
   }
   deleteFilter(id:number){
     console.log(id);
+    this.filters.splice(id,1);
   }
 }
 
