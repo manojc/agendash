@@ -6,7 +6,7 @@ h1{
 .dialog{
     overflow-x: hidden;
     overflow-y: scroll;
-    position: absolute;
+    position: relative;
     right: 0;
     left: 0;
     margin: auto;
