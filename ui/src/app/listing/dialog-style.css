@@ -5,7 +5,7 @@ h1{
 }
 .dialog{
     overflow-x: hidden;
-    overflow-y: scroll;
+  
     position: absolute;
     right: 0;
     left: 0;
@@ -32,7 +32,7 @@ h1{
     position: relative;
     float: right;
     margin-top: 15px;
-    
+    margin-right: 10px;
 }
 mat-form-field{
     

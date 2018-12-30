@@ -48,6 +48,7 @@ table {
     overflow: hidden;
     display: flex;
     color: white;
+   
   }
   
   .example-element-description {
@@ -59,6 +60,10 @@ table {
   }
   
   pre{
-
+    overflow-y: hidden;
     color: white;
+  }
+  .data {
+
+    overflow: hidden;
   }

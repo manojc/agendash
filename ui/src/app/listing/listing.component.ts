@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { UserDataService } from '../user-data.service';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { MatDialogRef, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { DataSource } from '@angular/cdk/collections';
 import { Observable } from '../../../node_modules/rxjs';
 import { Data } from '../data';
+
+export interface DialogData {
+  key: string;
+  value: string;
+}
+
 
 @Component({
   selector: 'app-listing',
@@ -32,11 +38,13 @@ export class ListingComponent implements OnInit {
   expandedElement: Data | null;
   constructor(private userData: UserDataService, public dialog: MatDialog) { }
 
-  openDialog(): void {
+  openDialog(val): void {
     this.test = 1;
+    this.vals = val;
     this.dialog.open(DialogOverviewExampleDialog,{
       width: '500px',
-    
+      data:this.vals
+      
       })
       .afterClosed().subscribe(result => {
         
@@ -61,9 +69,9 @@ export class ListingComponent implements OnInit {
 
 export class DialogOverviewExampleDialog {
   filters: any[] = [{ key: '', value: '' }];
-  constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>) {
-    this.filters = this.filters;
-  }
+  constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,@Inject(MAT_DIALOG_DATA) public data: {filters : this.vals}) {
+    
+  }test made some ch
 
   onNoClick(): void {
     this.dialogRef.close(this.filters);

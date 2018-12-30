@@ -6,16 +6,16 @@
            
             <mat-form-field>
 
-                <mat-select [(ngModel)]="filters[i].key" placeholder="selext filter" required>
+                <mat-select [(ngModel)]="filters[i].key" placeholder="Select Filters" required>
                     <mat-option value="volvo">Volvo </mat-option>
-                    <mat-option value="saab">name </mat-option>
+                    <mat-option value="saab">Saab </mat-option>
                     <mat-option value="mercedes">Mercedes </mat-option>
                     <mat-option value="audi">Audi </mat-option>
                 </mat-select>
 
             </mat-form-field>
             <mat-form-field>
-                <input matInput [(ngModel)]="filters[i].value" placeholder="What's your name?" required>
+                <input matInput [(ngModel)]="filters[i].value" placeholder="Value" required>
             </mat-form-field>
 
             <button class="btn btn-danger" (click)="deleteFilter(i)">X</button>
