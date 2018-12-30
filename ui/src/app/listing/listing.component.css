@@ -47,6 +47,7 @@ table {
   .example-element-detail {
     overflow: hidden;
     display: flex;
+    color: white;
   }
   
   .example-element-description {
@@ -57,3 +58,7 @@ table {
     opacity: 0.5;
   }
   
+  pre{
+
+    color: white;
+  }

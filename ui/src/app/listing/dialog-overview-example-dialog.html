@@ -3,19 +3,19 @@
     <div class="content" mat-dialog-content>
 
         <div *ngFor="let filter of filters; index as i">
+           
             <mat-form-field>
 
-                <select [(ngModel)]="filters[i].key" #dropDown matNativeControl required>
-                    <option value="volvo"
-                    >Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                </select>
+                <mat-select [(ngModel)]="filters[i].key" placeholder="selext filter" required>
+                    <mat-option value="volvo">Volvo </mat-option>
+                    <mat-option value="saab">name </mat-option>
+                    <mat-option value="mercedes">Mercedes </mat-option>
+                    <mat-option value="audi">Audi </mat-option>
+                </mat-select>
 
             </mat-form-field>
             <mat-form-field>
-                <input #filter matInput [(ngModel)]="filters[i].value" placeholder="What's your name?" required>
+                <input matInput [(ngModel)]="filters[i].value" placeholder="What's your name?" required>
             </mat-form-field>
 
             <button class="btn btn-danger" (click)="deleteFilter(i)">X</button>

@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListingComponent, DialogOverviewExampleDialog } from './listing/listing.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule,MatCheckboxModule, MatTableModule, MatFormFieldModule, MatInputModule, MatCardModule, MatDialogModule } from "@angular/material";
+import { MatButtonModule,MatCheckboxModule, MatTableModule, MatFormFieldModule, MatInputModule, MatCardModule, MatDialogModule, MatSelectModule } from "@angular/material";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DetailsComponent } from './details/details.component';
 import { FormsModule } from '@angular/forms';
@@ -30,7 +30,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatCardModule,
     MatDialogModule,
-    
+    MatSelectModule,
+
     FormsModule,
     BrowserAnimationsModule,
     AppRoutingModule

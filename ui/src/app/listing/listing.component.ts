@@ -24,7 +24,7 @@ export class ListingComponent implements OnInit {
   public uData = [];
   displayedColumns: string[] = ['name', 'type', 'status'];
   dataSource = new UserDataSource(this.userData);
-  
+  vals : any[];
   test: number = 0;
   
   animal: string;
@@ -34,16 +34,19 @@ export class ListingComponent implements OnInit {
 
   openDialog(): void {
     this.test = 1;
-    this.dialog.open(DialogOverviewExampleDialog, {
-      width: '500px'
+    this.dialog.open(DialogOverviewExampleDialog,{
+      width: '500px',
+    
       })
       .afterClosed().subscribe(result => {
-        console.log(result);
+        
+        this.vals= result;
         this.test = 0;
       });
     }  
   
   ngOnInit() {
+    
     this.userData.getData().subscribe(data => {this.uData = data});
   }
 }
@@ -57,13 +60,14 @@ export class ListingComponent implements OnInit {
 
 
 export class DialogOverviewExampleDialog {
-  filters: any[];
+  filters: any[] = [{ key: '', value: '' }];
   constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>) {
-    this.filters = this.filters || [{ key: '', value: '' }];
+    this.filters = this.filters;
   }
 
   onNoClick(): void {
     this.dialogRef.close(this.filters);
+    
   }
   addFilter() {
     this.filters = [...this.filters, { key: '', value: '' }];
