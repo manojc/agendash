@@ -6,11 +6,8 @@
            
             <mat-form-field>
 
-                <mat-select [(ngModel)]="filters[i].key" placeholder="Select Filters" required>
-                    <mat-option value="volvo">Volvo </mat-option>
-                    <mat-option value="saab">Saab </mat-option>
-                    <mat-option value="mercedes">Mercedes </mat-option>
-                    <mat-option value="audi">Audi </mat-option>
+                <mat-select [(ngModel)]="filters[i].key" placeholder="Select Filters"  required>
+                    <mat-option *ngFor="let val of data" value="{{val}}">{{val | titlecase}} </mat-option>
                 </mat-select>
 
             </mat-form-field>
@@ -18,7 +15,7 @@
                 <input matInput [(ngModel)]="filters[i].value" placeholder="Value" required>
             </mat-form-field>
 
-            <button class="btn btn-danger" (click)="deleteFilter(i)">X</button>
+            <button class="btn btn-danger" (click)="deleteFilter(i, filters[i].key)">X</button>
 
         </div>
         <div mat-dialog-actions class="buttons">

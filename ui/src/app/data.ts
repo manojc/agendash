@@ -18,9 +18,6 @@ export interface Data {
     lockedAt : string,
     lastRunAt : string,
     lastFinishedAt : string
-
-
-
 }
 
 

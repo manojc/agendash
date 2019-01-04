@@ -49,6 +49,8 @@ export class ListingComponent implements OnInit {
       .afterClosed().subscribe(result => {
         
         this.vals= result;
+        
+        console.log(this.vals);
         this.test = 0;
       });
     }  
@@ -69,9 +71,11 @@ export class ListingComponent implements OnInit {
 
 export class DialogOverviewExampleDialog {
   filters: any[] = [{ key: '', value: '' }];
-  constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,@Inject(MAT_DIALOG_DATA) public data: {filters : this.vals}) {
-    
-  }test made some ch
+  data : any [] = [ 'id',  'name',  'type',  'lastRunAt',  'reapeatInterval'];
+  
+  constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>) {
+  
+  }
 
   onNoClick(): void {
     this.dialogRef.close(this.filters);
@@ -79,10 +83,13 @@ export class DialogOverviewExampleDialog {
   }
   addFilter() {
     this.filters = [...this.filters, { key: '', value: '' }];
+
   }
-  deleteFilter(id:number){
+  deleteFilter(id:number, filter:any){
     console.log(id);
     this.filters.splice(id,1);
+    
+    this.data.push(filter);
   }
 }
 
