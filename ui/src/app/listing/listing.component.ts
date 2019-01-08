@@ -71,7 +71,7 @@ export class ListingComponent implements OnInit {
 
 export class DialogOverviewExampleDialog {
   filters: any[] = [{ key: '', value: '' }];
-  data : any [] = [ 'id',  'name',  'type',  'lastRunAt',  'reapeatInterval'];
+  data : any [] = [ 'id',  'name'];
   
   constructor( public dialogRef: MatDialogRef<DialogOverviewExampleDialog>) {
   
@@ -82,16 +82,15 @@ export class DialogOverviewExampleDialog {
     
   }
   addFilter(i:any, filter:any) {
-    if(filter != ""){
+    if(this.data.length >= 1){
     this.filters = [...this.filters, { key: '', value: '' }];
     document.getElementById("btn"+i).style.display = "none";
     this.data = this.data.filter(item => item !== filter);
     console.log(this.data);
   }
     else{
-      
-      document.getElementById("btn").style.display = "none";
-
+      document.getElementById("select" + i).style.display = "none";
+      document.getElementById("btn"+ i).style.display = "none";
     }
   } 
 
