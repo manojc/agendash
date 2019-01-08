@@ -81,21 +81,30 @@ export class DialogOverviewExampleDialog {
     this.dialogRef.close(this.filters);
     
   }
-  addFilter() {
+  addFilter(i:any, filter:any) {
+    if(filter != ""){
     this.filters = [...this.filters, { key: '', value: '' }];
-
+    document.getElementById("btn"+i).style.display = "none";
+    this.data = this.data.filter(item => item !== filter);
+    console.log(this.data);
   }
+    else{
+      
+      document.getElementById("btn").style.display = "none";
+
+    }
+  } 
+
   deleteFilter(id:number, filter:any){
     console.log(id);
     this.filters.splice(id,1);
-    
-    this.data.push(filter);
+    this.data.push(filter);  
   }
 }
 
 export class UserDataSource extends DataSource<any> {
   constructor(private userService: UserDataService) {
-    super();
+  super();
   }
   connect(): Observable<Data[]> {
     return this.userService.getData();

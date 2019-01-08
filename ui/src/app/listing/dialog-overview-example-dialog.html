@@ -1,25 +1,19 @@
 <div class="dialog">
     <h1 mat-dialog-title>Hi Select Your Filters</h1>
     <div class="content" mat-dialog-content>
-
-        <div *ngFor="let filter of filters; index as i">
-           
+        <div *ngFor="let filter of filters; index as i"> 
             <mat-form-field>
-
                 <mat-select [(ngModel)]="filters[i].key" placeholder="Select Filters"  required>
                     <mat-option *ngFor="let val of data" value="{{val}}">{{val | titlecase}} </mat-option>
                 </mat-select>
-
             </mat-form-field>
             <mat-form-field>
                 <input matInput [(ngModel)]="filters[i].value" placeholder="Value" required>
             </mat-form-field>
-
             <button class="btn btn-danger" (click)="deleteFilter(i, filters[i].key)">X</button>
-
+            <button id="btn{{i}}" *ngIf="filters[i].key.length != 0" (click)="addFilter(i, filters[i].key)">Add New Filter</button>
         </div>
         <div mat-dialog-actions class="buttons">
-            <button mat-button (click)="addFilter()">Add New Filter</button>
             <button mat-button cdkFocusInitial (click)="onNoClick()">Search Jobs</button>
         </div>
     </div>
